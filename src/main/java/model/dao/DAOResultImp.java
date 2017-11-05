@@ -60,6 +60,7 @@ public class DAOResultImp extends HibernateUtil  implements DAOResultInterface {
     @Override
     public List<Result> searchAllGrades(int courseId, int sem, int yr) {
 		Criteria crit = getSession().createCriteria(Result.class);
+//System.out.println("Course is" + courseid +" year is : "+ yr + "semester is :" + sem);
 	       crit.add(Restrictions.eq("course.courseId", courseId));
 	        crit.add(Restrictions.eq("semester", sem));
 	        crit.add(Restrictions.eq("year", yr));

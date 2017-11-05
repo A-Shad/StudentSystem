@@ -28,13 +28,16 @@ public class LoginController {
     @RequestMapping(value = "/signup", method=RequestMethod.POST)
     public ModelAndView doSignup(
             @ModelAttribute("new_user") LoginSystem log) {
+
         try {
             da.insert(log);
         } catch (ObjectNotFoundException|ClassNotFoundException ex) {
             ex.printStackTrace();
         }
+
         String url = "redirect:/";
         ModelAndView model = new ModelAndView(url);
+
         return model;
     }
     
@@ -42,20 +45,22 @@ public class LoginController {
     public ModelAndView doLogin(
             @RequestParam("userName") String un,
             @RequestParam("password") String pass) {
+
         String url = "redirect:/";
         LoginSystem lg = null;
         try {
+
             lg = da.SelectByID(un);
             if (lg != null && lg.getPassword().equals(pass)) {
                 url = "welcome";
             }
         } catch (ObjectNotFoundException ex) { }
-    
+     
         ModelAndView model = new ModelAndView(url);
         if (url.equals("welcome")) {
             model.addObject("user", lg);
         }
-     
+  
         return model;
     }
 }

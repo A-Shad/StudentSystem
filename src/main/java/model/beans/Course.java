@@ -20,24 +20,25 @@ public class Course {
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "COURSE_ID")
 	private Integer courseId;
-
+	
 	@Column(name = "Course_NAME")
 	private String courseName;
+//	private Set<Result> result;
 
 	@Column(name = "Description")
 	private String courseDescription;
 
 	@OneToMany(mappedBy = "course")
 	private Set<Result> result;
-
+	
 	public Set<Result> getResult() {
 		return result;
 	}
 
+		
 	public void setResult(Set<Result> result) {
 		this.result = result;
 	}
-
 	public String getCourseDescription() {
 		return courseDescription;
 	}
@@ -49,6 +50,8 @@ public class Course {
 	public Course() {
 	}
 
+
+
 	public int getCourseId() {
 		return courseId;
 	}
@@ -56,6 +59,7 @@ public class Course {
 	public void setCourseId(int courseId) {
 		this.courseId = courseId;
 	}
+
 
 	public String getCourseName() {
 		return courseName;

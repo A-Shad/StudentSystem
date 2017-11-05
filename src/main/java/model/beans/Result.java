@@ -16,6 +16,8 @@ import javax.persistence.Table;
 @Table(name = "results")
 public class Result {
 
+
+	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "RESULT_ID")
@@ -23,23 +25,24 @@ public class Result {
 
 	@Column(name = "EXAM_MIDTERM")
 	private double examMidterm;
-
+	
 	@Column(name = "EXAM_FINAL")
 	private double examFinal;
-
+	
 	@Column(name = "SEMESTER")
 	private int semester;
-
+	
 	@Column(name = "YEAR")
 	private int year;
-
+	
 	@Column(name = "USERNAME")
 	private String userName;
+	
 
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_ID")
 	private Student student;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "COURSE_ID")
 	private Course course;
@@ -53,6 +56,8 @@ public class Result {
 		this.student = student;
 	}
 
+
+
 	public Course getCourse() {
 		return course;
 	}
@@ -60,6 +65,8 @@ public class Result {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
+
+	
 
 	public String getUserName() {
 		return userName;
@@ -69,6 +76,7 @@ public class Result {
 		this.userName = userName;
 	}
 
+	
 	public int getSemester() {
 		return semester;
 	}
@@ -76,7 +84,7 @@ public class Result {
 	public void setSemester(int semester) {
 		this.semester = semester;
 	}
-
+	
 	public int getYear() {
 		return year;
 	}
@@ -84,6 +92,7 @@ public class Result {
 	public void setYear(int year) {
 		this.year = year;
 	}
+
 
 	public int getResultId() {
 		return resultId;
@@ -93,6 +102,8 @@ public class Result {
 		this.resultId = resultId;
 	}
 
+
+
 	public double getExamMidterm() {
 		return examMidterm;
 	}
@@ -100,7 +111,7 @@ public class Result {
 	public void setExamMidterm(double examMidterm) {
 		this.examMidterm = examMidterm;
 	}
-
+	
 	public double getExamFinal() {
 		return examFinal;
 	}
@@ -108,7 +119,7 @@ public class Result {
 	public void setExamFinal(double examFinal) {
 		this.examFinal = examFinal;
 	}
-
+	
 	public Result() {
 	}
 

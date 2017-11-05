@@ -2,7 +2,7 @@ package controller;
 
 import java.text.ParseException;
 import java.util.List;
-
+//  To have Log4J
 //import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,8 @@ import model.dao.DAOStudentInterface;
 @Controller
 @RequestMapping("login/result")
 public class ResultActionController {
-	// final static Logger logger = Logger.getLogger(ResultActionController.class);
+	// Setup fro Log4J
+//	final static Logger logger = Logger.getLogger(ResultActionController.class);
 
 	@Autowired
 	private DAOResultInterface da;
@@ -38,15 +39,18 @@ public class ResultActionController {
 
 	@Autowired
 	private DAOCourseInterface daCourse;
-
+	
 	@Autowired
 	private DAOStudentInterface daStudent;
-
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public ModelAndView doInsertGet(@RequestParam("userName") String un) {
 
+
+
 		List<Course> cslist = daCourse.findAll();
 		List<Student> stlist = daStudent.findAll();
+		
 
 		ModelAndView model = new ModelAndView("resultInsert");
 
@@ -60,17 +64,13 @@ public class ResultActionController {
 	//
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public ModelAndView doInsertPost(@RequestParam("userName") String un, @ModelAttribute("new_result") Result rt)
+	public ModelAndView doInsertPost(
+			@RequestParam("userName") String un,
+			@ModelAttribute("new_result") Result rt)
 			throws ParseException {
 		try {
-			rt.getCourse().setCourseId(Integer.valueOf(rt.getCourse().getCourseName())); // getCourseName has courseId
-																							// with string format----
-																							// because of the error I
-																							// had with numeric amount,
-																							// I had to trick it in this
-																							// way....same applies to
-																							// the next line
-			rt.getStudent().setStudentId(Integer.valueOf(rt.getStudent().getFirstName()));
+	  	  rt.getCourse().setCourseId(Integer.valueOf(rt.getCourse().getCourseName()));	    //  getCourseName has courseId with string format---- because of the error I had with numeric amount, I had to trick it in this way....same applies to the next line
+	  	  rt.getStudent().setStudentId(Integer.valueOf(rt.getStudent().getFirstName()));	
 
 			da.save(rt);
 
@@ -83,9 +83,14 @@ public class ResultActionController {
 		model.addObject("userName", un);
 		return model;
 	}
+	
+    
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView doEditGet(@RequestParam("resultId") int rsId, @RequestParam("userName") String un) {
+	public ModelAndView doEditGet(@RequestParam("resultId") int rsId, 
+			@RequestParam("userName") String un)
+			{
+
 
 		String url = "resultEdit";
 		Result rt1 = da.findById(rsId);
@@ -99,16 +104,14 @@ public class ResultActionController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-	public ModelAndView doEditPost(@RequestParam("userName") String un, @ModelAttribute("edit_result") Result rt)
+	public ModelAndView doEditPost(
+			@RequestParam("userName") String un, 
+			@ModelAttribute("edit_result") Result rt)
 			throws ParseException {
 
-		rt.getCourse().setCourseId(Integer.valueOf(rt.getCourse().getCourseName())); // getCourseName has courseId with
-																						// string format---- because of
-																						// the error I had with numeric
-																						// amount, I had to trick it in
-																						// this way....same applies to
-																						// the next line
-		rt.getStudent().setStudentId(Integer.valueOf(rt.getStudent().getFirstName()));
+	  	  rt.getCourse().setCourseId(Integer.valueOf(rt.getCourse().getCourseName()));	  //  getCourseName has courseId with string format---- because of the error I had with numeric amount, I had to trick it in this way....same applies to the next line
+	  	 rt.getStudent().setStudentId(Integer.valueOf(rt.getStudent().getFirstName()));
+
 
 		rt.setUserName(un);
 		try {
@@ -126,8 +129,9 @@ public class ResultActionController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView doList(@RequestParam("userName") String un,
 			@ModelAttribute("listresult") model.beans.Result rt) {
-
+		
 		List<Result> listrt = da.findAll();
+
 
 		String url = "listOfResults";
 
@@ -139,9 +143,14 @@ public class ResultActionController {
 	}
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public ModelAndView doSearchGet(@RequestParam("userName") String un) {
+	public ModelAndView doSearchGet(@RequestParam("userName") String un)
+			{
+
+		
+		
 
 		List<Course> cslist = daCourse.findAll();
+		
 
 		ModelAndView model = new ModelAndView("searchResults");
 
@@ -153,11 +162,11 @@ public class ResultActionController {
 	}
 
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public ModelAndView doSearchPost(@RequestParam("userName") String un,
+	public ModelAndView doSearchPost(@RequestParam("userName") String un, 
 			@ModelAttribute("listResult") model.beans.Result rt) {
-
-		rt.getCourse().setCourseId(Integer.valueOf(rt.getCourse().getCourseName()));
-
+		
+		rt.getCourse().setCourseId(Integer.valueOf(rt.getCourse().getCourseName()));	
+		
 		List<Result> listrt = da.searchAllGrades(rt.getCourse().getCourseId(), rt.getSemester(), rt.getYear());
 
 		String url = "listOfResults";
@@ -169,9 +178,11 @@ public class ResultActionController {
 	}
 
 	@RequestMapping(value = "/email", method = RequestMethod.GET)
-	public ModelAndView doEmailGet(@RequestParam("resultId") int rtId, @RequestParam("userName") String un,
+	public ModelAndView doEmailGet(@RequestParam("resultId") int rtId, 
+			@RequestParam("userName") String un,
 			@ModelAttribute("email_result") EmailBean em) {
 
+		
 		String url = "emailResults";
 		Result rt1 = da.findById(rtId);
 
@@ -180,7 +191,7 @@ public class ResultActionController {
 
 		model.addObject("user", lg);
 		model.addObject("result", rt1);
-		System.out.println("firstname and last name are : " + em.getFirstName() + " " + em.getLastName());
+		System.out.println("firstname and last name are : " + em.getFirstName()+" "+ em.getLastName());
 		model.addObject("resultemail", em);
 
 		return model;
@@ -188,17 +199,25 @@ public class ResultActionController {
 
 	@RequestMapping(value = "/email", method = RequestMethod.POST)
 	public ModelAndView doEmailPost(
-			// , @ModelAttribute("email_result") EmailBean em)
-
-			@RequestParam("resultId") String resultId, @RequestParam("action") String action,
-			@RequestParam("examMidterm") String examMidterm, @RequestParam("examFinal") String examFinal,
-			@RequestParam("userName") String userName, @RequestParam("studentId") String studentId,
-			@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
-			@RequestParam("courseName") String courseName, @RequestParam("emailFrom") String emailFrom,
-			@RequestParam("bodyOfEmail") String bodyOfEmail, @RequestParam("titleOfEmail") String titleOfEmail,
-			@RequestParam("emailTo") String emailTo, @RequestParam("semester") String semester,
+			
+		
+			@RequestParam("resultId") String resultId,
+			@RequestParam("action") String action,
+			@RequestParam("examMidterm") String examMidterm,
+			@RequestParam("examFinal") String examFinal,
+			@RequestParam("userName") String userName,
+			@RequestParam("studentId") String studentId,
+			@RequestParam("firstName") String firstName,
+			@RequestParam("lastName") String lastName,
+			@RequestParam("courseName") String courseName,
+			@RequestParam("emailFrom") String emailFrom,
+			@RequestParam("bodyOfEmail") String bodyOfEmail,
+			@RequestParam("titleOfEmail") String titleOfEmail,
+			@RequestParam("emailTo") String emailTo,
+			@RequestParam("semester") String semester,
+//			@RequestParam("emailTitle") String emailTitle,
 			@RequestParam("year") String year) throws ParseException {
-
+	
 		EmailBean em = new EmailBean();
 		em.setCourseName(courseName);
 		em.setEmailBody(bodyOfEmail);
@@ -207,12 +226,12 @@ public class ResultActionController {
 		em.setEmailTo(emailTo);
 		em.setExamFinal(Float.valueOf(examFinal));
 		em.setExamMidterm(Float.valueOf(examMidterm));
-		em.setFirstName(firstName);
-		em.setLastName(lastName);
-		em.setSemester(Integer.valueOf(semester));
-		em.setStudentId(Integer.valueOf(studentId));
-		em.setYear(Integer.valueOf(year));
-		em.setUsername(userName);
+        em.setFirstName(firstName);
+        em.setLastName(lastName);
+        em.setSemester(Integer.valueOf(semester));
+        em.setStudentId(Integer.valueOf(studentId));
+        em.setYear(Integer.valueOf(year));
+        em.setUsername(userName);
 		LoginSystem lg = daLogin.SelectByID(userName);
 		em.setPassword(lg.getPassword());
 		try {

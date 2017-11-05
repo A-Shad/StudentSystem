@@ -16,7 +16,6 @@
 			<version>4.3.10.RELEASE</version>
 		</dependency>
 
-		<!-- FIX: Their versions do not match -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -58,6 +57,7 @@
 
 		<!-- Hibernate -->
 
+			</dependency> -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -69,7 +69,7 @@
 			<version>5.1.6</version>
 		</dependency>
 
-		<!-- FIX: you need this for tomcat. Apache Commons DBCP -->
+		<!--  you need this for tomcat. Apache Commons DBCP -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
@@ -77,6 +77,9 @@
 		</dependency>
 
 
+		<!-- You need web api in case server is not attached, not the tomcat 
+			embeded -->
+		<!-- Java web API -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
@@ -99,12 +102,13 @@
 			<version>5.5.12</version>
 		</dependency>
 
-
+		<!-- You need this to read proper error -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.15</version>
 			<exclusions>
+
 				<exclusion>
 					<groupId>javax.jms</groupId>
 					<artifactId>jms</artifactId>
@@ -132,7 +136,8 @@
 
 					<source>1.8</source>
 					<target>1.8</target>
-
+					<!-- If you decide that you need this, uncomment later <compilerArguments> 
+						<endorseddirs>${endorsed.dir}</endorseddirs> </compilerArguments> -->
 				</configuration>
 			</plugin>
 			<plugin>

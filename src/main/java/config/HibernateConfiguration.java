@@ -34,6 +34,7 @@ public class HibernateConfiguration {
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan(new String[] { "model.beans" });
         sessionFactory.setHibernateProperties(hibernateProperties());
+        //sessionFactory.setAnnotatedClasses(LoginSystem.class);
         return sessionFactory;
      }
      

@@ -6,14 +6,20 @@ import model.beans.Student;
 
 public interface DAOStudentInterface {
 
-	public void save(Student entity);
+	    
+		public void save(Student entity);
+		
+		public Student findById(int id);
+		
+		public void delete(int id);
+		
+		public List<Student> findAll();
 
-	public Student findById(int id);
+	//	public List<String> findAllStudentNames();
 
-	public void delete(int id);
-
-	public List<Student> findAll();
-
-	public List<Student> searchAll(String fn, String ln);
+		public List<Student> searchAll(String fn, String ln);
 
 }
+
+
+

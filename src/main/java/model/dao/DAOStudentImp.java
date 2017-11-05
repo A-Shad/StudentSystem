@@ -16,6 +16,10 @@ import model.beans.Student;
 @Repository
 @Transactional
 public class DAOStudentImp extends HibernateUtil implements DAOStudentInterface {
+//    @Autowired
+//    private SessionFactory sessionFactory;
+    
+//	private static final Object Student = null;
 
 	@Override
 	public void save(Student entity) {
@@ -34,14 +38,15 @@ public class DAOStudentImp extends HibernateUtil implements DAOStudentInterface 
 	@Override
 	public void delete(int id) {
 		getSession().delete(findById(id));
+		
 
 	}
 
 	@Override
 	public List<Student> findAll() {
 
-		Criteria criteria = getSession().createCriteria(Student.class);
-		return criteria.list();
+        Criteria criteria = getSession().createCriteria(Student.class);        
+        return criteria.list();
 	}
 
 	@Override

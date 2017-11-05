@@ -36,6 +36,7 @@ public class StudentActionController {
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public ModelAndView doInsertGet(@RequestParam("userName") String un) {
 
+
 		ModelAndView model = new ModelAndView("studentInsert");
 		model.addObject("new_student", new Student());
 		model.addObject("userName", un);
@@ -45,7 +46,8 @@ public class StudentActionController {
 	//
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public ModelAndView doInsertPost(@RequestParam("userName") String un, @ModelAttribute("new_student") Student st)
+	public ModelAndView doInsertPost(@RequestParam("userName") String un, 
+			@ModelAttribute("new_student") Student st)
 			throws ParseException {
 
 		String gender = "";
@@ -78,13 +80,10 @@ public class StudentActionController {
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView doEditGet(@RequestParam("studentId") int stId, @RequestParam("userName") String un,
 			@ModelAttribute("edit_student") Student st) {
-		// logger.info("username is here = " + un);
-		// logger.info("Student name1 is= " + st.getFirstName());
 
 		String url = "studentEdit";
 		Student st1 = da.findById(stId);
 
-		// logger.info("Student name2 is= " + st1.getFirstName());
 		ModelAndView model = new ModelAndView(url);
 		model.addObject("userName", un);
 		model.addObject("student", st1);
@@ -166,7 +165,7 @@ public class StudentActionController {
 		Student st1 = da.findById(stId);
 
 		LoginSystem lg = daLogin.SelectByID(un);
-
+		
 		ModelAndView model = new ModelAndView(url);
 		model.addObject("userName", un);
 		model.addObject("user", lg);

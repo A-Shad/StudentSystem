@@ -15,14 +15,16 @@
 			<artifactId>spring-tx</artifactId>
 			<version>4.3.10.RELEASE</version>
 		</dependency>
-
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-jdbc</artifactId> 
+			<version>2.0.6</version> </dependency> -->
 		<!-- FIX: Their versions do not match -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>4.3.10.RELEASE</version>
 		</dependency>
-
+		<!-- FIX: This is not necessary <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-core</artifactId> <version>4.3.10.RELEASE</version> </dependency> -->
 		<!-- This is necessary for spring in front end -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -36,7 +38,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
+		<!-- This is not necessary <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-web</artifactId> <version>4.3.10.RELEASE</version> </dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -57,7 +60,9 @@
 		</dependency>
 
 		<!-- Hibernate -->
-
+		<!-- FIX: you need hibernate core <dependency> <groupId>org.hibernate</groupId> 
+			<artifactId>hibernate-annotations</artifactId> <version>3.5.6-Final</version> 
+			</dependency> -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -76,7 +81,15 @@
 			<version>1.4</version>
 		</dependency>
 
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.tomcat.embed</groupId> -->
+		<!-- <artifactId>tomcat-embed-jasper</artifactId> -->
+		<!-- <version>9.0.0.M26</version> -->
+		<!-- </dependency> -->
 
+		<!-- FIX: You need web api in case server is not attached, not the tomcat 
+			embeded -->
+		<!-- Java web API -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
@@ -99,12 +112,16 @@
 			<version>5.5.12</version>
 		</dependency>
 
-
+		<!-- FIX: You need this to read proper error -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.15</version>
 			<exclusions>
+				<!-- <exclusion> -->
+				<!-- <groupId>javax.mail</groupId> -->
+				<!-- <artifactId>mail</artifactId> -->
+				<!-- </exclusion> -->
 				<exclusion>
 					<groupId>javax.jms</groupId>
 					<artifactId>jms</artifactId>
@@ -129,10 +146,12 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-
+					<!-- FIX: Change back to Java 7 if you have it installed, my pc only 
+						has java 8. Also change it in Project Facet -->
 					<source>1.8</source>
 					<target>1.8</target>
-
+					<!-- FIX: If you decide that you need this, uncomment later <compilerArguments> 
+						<endorseddirs>${endorsed.dir}</endorseddirs> </compilerArguments> -->
 				</configuration>
 			</plugin>
 			<plugin>

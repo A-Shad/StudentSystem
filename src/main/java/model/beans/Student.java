@@ -1,5 +1,7 @@
 package model.beans;
 
+
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,64 +15,68 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import static javax.persistence.GenerationType.IDENTITY;
 
+
+
 @Entity
 @Table(name = "students")
-public class Student {
+public class Student  {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "STUDENT_ID")
 	private Integer studentId;
-
+	
 	@Column(name = "FIRST_NAME")
 	private String firstName;
-
+	
 	@Column(name = "LAST_NAME")
 	private String lastName;
-
+	
 	@Column(name = "UNIVERSITY")
 	private String university;
-
+	
 	@Column(name = "GENDER")
 	private String gender;
 	// @Type(type="date")
-
+	
 	@Column(name = "DOB")
 	private String dob;
-
+	
 	@Column(name = "ADDRESS")
 	private String address;
-
+	
 	@Column(name = "CITY")
 	private String city;
-
+	
 	@Column(name = "PROVINCE")
 	private String province;
-
+	
 	@Column(name = "COUNTRY")
 	private String country;
-
+	
 	@Column(name = "EMAIL")
 	private String email;
-
+	
 	@Column(name = "PHONE")
 	private String phone;
-
+	
 	@Column(name = "FAX")
 	private String fax;
-
+	
 	@Column(name = "USERNAME")
 	private String userName;
-
+	
 	@OneToMany(mappedBy = "student")
 	private Set<Result> result;
-
+	
+	
+	
 	public Set<Result> getResult() {
 		return this.result;
 	}
-
 	public void setResult(Set<Result> result) {
 		this.result = result;
 	}
+
 
 	public int getStudentId() {
 		return studentId;
@@ -80,6 +86,7 @@ public class Student {
 		this.studentId = studentId;
 	}
 
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -88,6 +95,9 @@ public class Student {
 		this.userName = userName;
 	}
 
+
+
+	
 	public String getDob() {
 		return dob;
 	}
@@ -96,6 +106,7 @@ public class Student {
 		this.dob = dob;
 	}
 
+	
 	public String getUniversity() {
 		return university;
 	}
@@ -104,6 +115,7 @@ public class Student {
 		this.university = university;
 	}
 
+	
 	public String getGender() {
 		return gender;
 	}
@@ -112,6 +124,7 @@ public class Student {
 		this.gender = gender;
 	}
 
+	
 	public String getAddress() {
 		return address;
 	}
@@ -120,6 +133,7 @@ public class Student {
 		this.address = address;
 	}
 
+	
 	public String getCity() {
 		return city;
 	}
@@ -128,6 +142,7 @@ public class Student {
 		this.city = city;
 	}
 
+	
 	public String getProvince() {
 		return province;
 	}
@@ -136,6 +151,7 @@ public class Student {
 		this.province = province;
 	}
 
+	
 	public String getCountry() {
 		return country;
 	}
@@ -144,6 +160,7 @@ public class Student {
 		this.country = country;
 	}
 
+	
 	public String getEmail() {
 		return email;
 	}
@@ -152,6 +169,7 @@ public class Student {
 		this.email = email;
 	}
 
+	
 	public String getPhone() {
 		return phone;
 	}
@@ -160,6 +178,7 @@ public class Student {
 		this.phone = phone;
 	}
 
+	
 	public String getFax() {
 		return fax;
 	}
@@ -171,6 +190,7 @@ public class Student {
 	public Student() {
 	}
 
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -178,7 +198,8 @@ public class Student {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
+	
+	
 	public String getLastName() {
 		return lastName;
 	}
