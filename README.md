@@ -17,7 +17,7 @@
    c- There are two types of email functions in the system: in Student subsystem you can send a general email located as a hiperlink 
       in the list of students or can send the result as PDF sttachment to students, located in the Result subsystem as a hiperlink 
       in the list of results. Making PDF file as attachment is taking place in the memory and nothing get saved on harddisk. 
-      In case you wanna to check the email functions, the email attached to the user must be set to be allowed to send email inside 
+      In case you wanna check the email functions, the email attached to the user must be set to be allowed to send email inside 
       the application. Please check the relevant documents for each mail server for the proper settings. 
       
  Happy J2EE development!
