@@ -9,7 +9,7 @@
    could use SQLDeveloper for both MySQL and Oracle, I found DBeaver more friendly to work with MySQL.
    
 3- This system is tested on Windows 10, 7 and Linux Mint 18.1. In case you choose to work with Linux and Oracle, my suggestion is to
-   choose RedHat since I guess oracle is apparently designed specifically for RedHat and with Linux Mint it's not that straight forward.
+   select RedHat since I guess oracle is apparently designed specifically for RedHat and with Linux Mint it's not that straight forward.
 
 4- This system has four sub-systems: Students, Courses, Results and Logins. Here are some of the functions available in the system:
    a- You can signup and the login. 
