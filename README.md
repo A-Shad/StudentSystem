@@ -3,7 +3,7 @@
     and .... I tested this system on both Linux and Windows platforms and both MySQL 5.5 and Oracle 11.2 but I chose MySQL for the final 
     version.  
 
-2- I used both Eclipse and Netbeans as IDE, but I found Eclipse a better option because I beleive the debugging is easier with Eclipse. 
+2- I used both Eclipse and Netbeans as IDE, but I found Eclipse a better option because I believe the debugging is easier with Eclipse. 
    I also used Tomcat 8.0. Because I had different versions of Eclipses installed on different operating systems and computers 
    and some of them could just support upto TomCat 8.0. I used both SQLDeveloper and DBeaver as database IDE. Although I 
    could use SQLDeveloper for both MySQL and Oracle, I found DBeaver more friendly to work with MySQL.
