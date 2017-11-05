@@ -1,6 +1,6 @@
 # Student System
 1- This system is developed using Maven, Spring MVC, Hibernate, TomCat 8.0, Log4J, Java 8, JSTL, JavaScript, JSP, HTML, JQuery, CSS, Bootstrap 
-    and .... I tested this system on both Linux and Windows platforms and both MySQL 5.5 and Oracle 11.2 but I choose MySQL for the final 
+    and .... I tested this system on both Linux and Windows platforms and both MySQL 5.5 and Oracle 11.2 but I chose MySQL for the final 
     version.  
 
 2- I used both Eclipse and Netbeans as IDE, but I found Eclipse a better option because I beleive the debugging is easier with Eclipse. 
