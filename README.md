@@ -21,7 +21,7 @@
       the application. Please check the relevant documents for each mail server for the proper settings. 
   
  5- To run the application: a-Create "studentadmission" database in your MySQL. b- Set your MySQL Username and Password in     "hibernate.properties" file and it's good to go!  Don't forget to change "hibernate.hbm2ddl.auto" to "update" 
-    after the first run to not re-create database each time.
+    after the first run to not re-create database tables each time.
       
  Happy J2EE development!
  
