@@ -14,10 +14,10 @@
 4- This system has four sub-systems: Students, Courses, Results and Logins. Here are some of the functions available in the system:
    a- You can signup and the login. 
    b- You can register/edit/search/list student, course and marks. 
-   c- There are two types of email functions in the system: in Student subsystem you can send a general email located as a hiperlink 
-      in the list of students or can send the result as PDF attachment to students, located in the Result subsystem as a hiperlink 
-      in the list of results. Making PDF file as attachment is taking place in the memory and nothing get saved on harddisk. 
-      In case you wanna check the email functions, the the user's email must be set to be allowed to send email inside 
+   c- There are two types of email functions in the system: in Student subsystem you can send a general email; located as a hiperlink 
+      in the list of students, or can send the result as PDF attachment to students; located in the Result subsystem as a hiperlink 
+      in the list of results. Making PDF file as attachment is taking place in the memory and no results get saved on harddisk. 
+      In case you wanna check the email functions, the user's email must be set to be allowed to send email inside 
       the application. Please check the relevant documents for each mail server for the proper settings. 
   
  5- To run the application: a-Create "studentadmission" database in your MySQL. b- Set your MySQL "username" and "password" in     "hibernate.properties" file and it's good to go!  Don't forget to change "hibernate.hbm2ddl.auto" to "update" 
