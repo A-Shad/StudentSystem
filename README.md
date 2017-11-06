@@ -20,7 +20,7 @@
       In case you wanna check the email functions, the user's email must be set to be allowed to send email inside 
       the application. Please check the relevant documents for each mail server for the proper settings. 
   
- 5- To run the application: a-Create "studentadmission" database in your MySQL. b- Set your MySQL "username" and "password" in     "hibernate.properties" file For the email function c- Download javax.mail.jar file and add it to the library d-Your antivirus might block the emails out, and you need to add a rule to your firewall to let it pass, too.
+ 5- To run the application: a-Create "studentadmission" database in your MySQL. b- Set your MySQL "username" and "password" in     "hibernate.properties" file. For the email function c- Download javax.mail.jar file and add it to the library d-Your antivirus might block the emails out, and you need to add a rule to your firewall to let it pass, too.
  
  6- It should be good to go!  Don't forget to change "hibernate.hbm2ddl.auto" to "update" after the first run to not re-create database tables each time.
 
