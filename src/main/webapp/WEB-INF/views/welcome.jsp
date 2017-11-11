@@ -56,9 +56,8 @@ li a {
 						<form method="get" action="student/list" target="_blank">
 							<!-- FIX: getting value needs to be in quote -->
 							<input type="hidden" name="userName" value="${user.userName}" />
-							<input type="hidden" name="action" value="list" /> <input
-								type="hidden" name="studentId" value="0" /> <input
-								type='submit' value="List of Students" />
+							<input type="hidden" name="action" value="list" /> 
+								<input	type='submit' value="List of Students" />
 						</form>
 						<form method="get" action="student/insert" target="_blank">
 							<!-- FIX: getting value needs to be in quote -->
@@ -82,9 +81,8 @@ li a {
 					<div data-role="collapsible">
 						<h4>Courses</h4>
 						<form method="get" action="course/list" target="_blank">
-							<input type="hidden" name="action" value="list" /> <input
-								type="hidden" name="courseId" value="0" /> <input type='submit'
-								value="List of Courses" />
+							<input type="hidden" name="action" value="list" /> 
+							<input type='submit' value="List of Courses" />
 						</form>
 						<form method="get" action="course/insert" target="_blank">
 							<input type="hidden" name="action" value="insert" /> <input
@@ -104,9 +102,8 @@ li a {
 							<h4>Results</h4>
 							<form method="get" action="result/list" target="_blank">
 								<input type="hidden" name="userName" value=${user.userName } />
-								<input type="hidden" name="action" value="list" /> <input
-									type="hidden" name="resultId" value="0" /> <input
-									type='submit' value="Results" />
+								<input type="hidden" name="action" value="list" /> 
+									<input type='submit' value="Results" />
 							</form>
 							<form method="get" action="result/insert" target="_blank">
 								<input type="hidden" name="userName" value=${user.userName } />
